@@ -34,4 +34,7 @@ RailsApiConsumer::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # The location of the test Oauth/API provider application
+  config.test_api_location = "http://localhost:3000"
 end

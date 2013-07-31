@@ -1,6 +1,6 @@
 class TestToken < ConsumerToken
 	TEST_SETTINGS={
-		:site => "http://localhost:3000",
+		:site => Rails.application.config.test_api_location,
 		:request_token_path => "/oauth/request_token",
 		:access_token_path => "/oauth/access_token",
 		:authorize_path => "/oauth/authorize"

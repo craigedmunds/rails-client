@@ -67,4 +67,7 @@ RailsApiConsumer::Application.configure do
 
   # For devise
   config.action_mailer.default_url_options = { :host => 'shrouded-coast-2114.herokuapp.com' }
+
+  # The location of the test Oauth/API provider application
+  config.test_api_location = "http://shrouded-coast-2114.herokuapp.com"
 end
