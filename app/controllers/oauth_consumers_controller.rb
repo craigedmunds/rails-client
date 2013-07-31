@@ -16,11 +16,15 @@ class OauthConsumersController < ApplicationController
   end
 
   def show
-    #@user = User.find_by_id(params[:id])
     @consumer_tokens=TestToken.all :conditions=>{:user_id=>current_user.id}
-    @token = @consumer_tokens.first.client
+    
+    if @consumer_tokens.first
+      @token = @consumer_tokens.first.client
 
-    logger.info @token.inspect
+      logger.info @token.inspect
+    else
+      super
+    end
 
   end
 
