@@ -2,8 +2,13 @@
     <h1>Welcome! </h1>
     <p>to <%= link_to 'OAuth client',  "#" %>
      </p>
-
+   	<% unless user_signed_in? %>
     <p> <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %> </p>
+    <% end %>
 </div>
+
+<% if @data %>
+	<p> <%= @data %> </p>
+<% end %>
 
 <p>Find me in app/views/welcome/index.html.erb</p>
