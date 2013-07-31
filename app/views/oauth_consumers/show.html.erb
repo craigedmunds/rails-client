@@ -1,0 +1,27 @@
+<h1>You are connected to <%=params[:id].humanize%></h1>
+
+<h2>Consumer token</h2>
+
+<p>
+  <strong>Consumer Key:</strong>
+  <code><%= @token.consumer.key %></code>
+</p>
+<p>
+  <strong>Consumer Secret:</strong>
+  <code><%= @token.consumer.secret %></code>
+</p>
+<p>
+  <strong>Token:</strong>
+  <code><%= @token.token %></code>
+</p>
+<p>
+  <strong>Token secret:</strong>
+  <code><%= @token.secret %></code>
+</p>
+	
+<% form_tag oauth_consumer_path(params[:id]),:method=>:delete do %>
+  <%=submit_tag "Disconnect" %>
+  or
+  <%=submit_tag "Reconnect" %>
+  if you experienced a problem.
+<% end %>

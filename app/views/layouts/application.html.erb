@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsApi Consumer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+    	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </a>
+    	<a class="brand" href="/">Craigs Rails API Client</a>
+
+      <div class="nav-collapse">
+          <ul class="nav">
+              <li>
+                  <%= link_to 'Home',  "#" %>
+              </li>
+              <li>    
+                  <%= link_to 'About',  "#" %>
+              </li>
+          </ul>
+          <ul class="nav pull-right">
+	          <% if user_signed_in? %>
+	            <li><%= link_to "Accounts", oauth_consumers_path %></li>
+	            <li><%= link_to "Edit Profile", "#" %></li>
+	            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+	          <% else %>
+	        		<li><%= link_to "Login", new_user_session_path %></li>
+	          <% end %>
+          </ul>
+      </div>
+	</div>
+
+	<div class="container">
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+		<% end %>
+		
+		<%= yield %>
+		
+		<div class="footer">
+		  <small>
+		    by <%= link_to "Craig Edmunds", "http://twitter.com/craigtech" %>
+		  </small>
+		</div>
+	</div>
+
+</body>
+</html>
