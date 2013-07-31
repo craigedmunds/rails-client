@@ -70,4 +70,6 @@ RailsApiConsumer::Application.configure do
 
   # The location of the test Oauth/API provider application
   config.test_api_location = "http://shrouded-coast-2114.herokuapp.com"
+  config.test_api_key = "YhQRVwNZzEqD7e2CDOfSLuUpGoh4memquVcjD4iR"
+  config.test_api_secret = "2dSnT0XXGgy2f4Diy2CyYATFPabKU07zx4oloZGC"
 end

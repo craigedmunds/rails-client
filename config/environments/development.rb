@@ -38,6 +38,8 @@ RailsApiConsumer::Application.configure do
   # For devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  # The location of the test Oauth/API provider application
+  # Oauth/API provider application settings
   config.test_api_location = "http://localhost:3000"
+  config.test_api_key = "pwSx1gZkzlgz1EZt82izc50oLFVOVjPcDuhyZaAV"
+  config.test_api_secret = "gXOg0j6mkvo4RaH8OPSR9K7rjIasyoFJbtMndrPd"
 end
