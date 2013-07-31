@@ -1,0 +1,14 @@
+class TestServiceToken < ConsumerToken
+	
+	TEST_SERVICE_SETTINGS={
+		:site => Rails.application.config.test_api_location,
+		:request_token_path => "/oauth/request_token",
+		:access_token_path => "/oauth/access_token",
+		:authorize_path => "/oauth/authorize"
+	}
+	 
+	def self.consumer(options={})
+		@consumer ||= OAuth::Consumer.new(credentials[:key], credentials[:secret], TEST_SERVICE_SETTINGS.merge(options))
+	end
+ 
+end

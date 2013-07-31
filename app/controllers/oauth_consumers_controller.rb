@@ -12,16 +12,35 @@ class OauthConsumersController < ApplicationController
 
   def index
     @consumer_tokens=ConsumerToken.all :conditions=>{:user_id=>current_user.id}
-    @services=OAUTH_CREDENTIALS.keys-@consumer_tokens.collect{|c| c.class.service_name}
+    @services=OAUTH_CREDENTIALS.keys-@consumer_tokens.collect{|c| c.class.service_name }
+
+    logger.info "services.first" + @services.first.inspect
+
+    # Bundle more information about the services for display on the index page
+    @service_details = []
+    @connected_service_details = []
+
+    # Services contains a list of services that the user hasn't connected, if there's nothing in this list,
+    # don't construct the service details node
+
+    if @services.first
+      @service_details.push({ "name" => "test_service", "site" => Rails.application.config.test_api_location, "token" => @consumer_tokens.first })
+    else
+      @connected_service_details.push({ "name" => "test_service", "site" => Rails.application.config.test_api_location, "token" => @consumer_tokens.first })
+    end
+
+    logger.info "service_details" + @service_details.inspect
+    logger.info "connected_service_details" + @connected_service_details.inspect
   end
 
   def show
-    @consumer_tokens=TestToken.all :conditions=>{:user_id=>current_user.id}
-    
+    @consumer_tokens=TestServiceToken.all :conditions=>{:user_id=>current_user.id}
+    logger.info TestServiceToken.inspect
+
     if @consumer_tokens.first
       @token = @consumer_tokens.first.client
 
-      logger.info @token.inspect
+      #logger.info @token.inspect
     else
       super
     end

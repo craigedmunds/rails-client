@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
-  has_one  :test, :class_name=>"TestToken", :dependent=>:destroy
+  has_one  :test_service, :class_name=>"TestServiceToken", :dependent=>:destroy
 
 end

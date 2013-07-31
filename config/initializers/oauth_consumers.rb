@@ -4,7 +4,7 @@
 # eg. :twitter => TwitterToken, :hour_feed => HourFeedToken etc.
 #
 OAUTH_CREDENTIALS={
-	:test =>{
+	:test_service =>{
 	:key => "pwSx1gZkzlgz1EZt82izc50oLFVOVjPcDuhyZaAV",
 	     :secret => "gXOg0j6mkvo4RaH8OPSR9K7rjIasyoFJbtMndrPd",
 	     :expose => true

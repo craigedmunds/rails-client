@@ -1,6 +1,6 @@
 <h1>Services</h1>
 
-<% if @consumer_tokens.empty? %>
+<% if @connected_service_details.empty? %>
   <p>
     You are currently not connected to any external services.
   </p>
@@ -9,20 +9,20 @@
     You are connected to the following services:
   </p>
   <ul>
-    <% @consumer_tokens.each do |token| %>
+    <% @connected_service_details.each do |service| %>
       <li>
-        <%= link_to token.class.service_name.to_s.humanize, oauth_consumer_path(token.class.service_name) %>
+        <%= link_to service["name"].to_s.humanize + " [" + service["site"] + "]", oauth_consumer_path(service["token"].class.service_name) %>
       </li>
     <% end %>
   </ul>
 <% end %>
 
-<% unless @services.empty? %>
+<% unless @service_details.empty? %>
 <h3>You can connect to the following services:</h3>
 <ul>
-  <% @services.each do |service| %>
+  <% @service_details.each do |service| %>
     <li>
-      <%= link_to service.to_s.humanize, oauth_consumer_path(service) %>
+      <%= link_to service["name"].to_s.humanize + " [" + service["site"] + "]", oauth_consumer_path(service["name"]) %>
     </li>
   <% end %>
 </ul>
