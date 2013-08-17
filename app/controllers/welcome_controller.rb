@@ -9,9 +9,15 @@ class WelcomeController < ApplicationController
 
 	    if @token
 	    	@client = @token.client
-	    	@data = @client.get("/api/v2/users").body
 
-		  	logger.info "private data: " + @data
+
+				#logger.info "Diag: " + @client.consumer.http.inspect
+
+	    	@client.consumer.http.set_debug_output $stderr
+	    	@response = @client.get("/api/v2/users")
+	    	@data = @response.body
+
+		  	logger.info "private data: " + @response.inspect
 		  end
 		end
   end
