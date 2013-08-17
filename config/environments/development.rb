@@ -40,6 +40,6 @@ RailsApiConsumer::Application.configure do
 
   # Oauth/API provider application settings
   config.test_api_location = "http://localhost:3000"
-  config.test_api_key = "pwSx1gZkzlgz1EZt82izc50oLFVOVjPcDuhyZaAV"
-  config.test_api_secret = "gXOg0j6mkvo4RaH8OPSR9K7rjIasyoFJbtMndrPd"
+  config.test_api_key = "sXZ1xeE1U21MOg29CFtoum12ENxJPXJmdsGc92O5"
+  config.test_api_secret = "X51WpeZ5LCEmz6l5htiGy8WRkGtZ6lgsQSoqMI8J"
 end
